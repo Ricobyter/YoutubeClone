@@ -5,6 +5,7 @@ import {BsCameraVideo, BsYoutube, BsBell} from 'react-icons/bs';
 import {GiHamburgerMenu} from 'react-icons/gi';
 import {IoAppsSharp} from 'react-icons/io5'
 import { Link } from 'react-router-dom';
+import Logo from '../assets/images/mrbeast.png'
 
 export default function Navbar() {
   return (
@@ -36,7 +37,20 @@ export default function Navbar() {
                     </button>
                 </div>
             </form>
-            
+            <div className='text-xl p-3 bg-zinc-800 rounded-full'>
+                <TiMicrophone />
+            </div>
+        </div>
+        <div className='flex gap-4 items-center text-xl'>
+            <BsCameraVideo />
+            <IoAppsSharp />
+            <div className='relative'>
+                <BsBell />
+                <span className='absolute bottom-2 left-2 text-xs bg-red-500 rounded-full px-1'>
+                    68+
+                </span>
+            </div>
+            <img src= {Logo} alt="Logo" className='h-9 w-9 rounded-full ml-2'/>
         </div>
     </div>
   )
