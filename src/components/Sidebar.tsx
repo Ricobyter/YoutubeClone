@@ -166,7 +166,7 @@ export default function Sidebar() {
       </ul>
       <span className="px-4 text-sm text-zinc-400 ">&copy; 2024 Rico</span>
       <br />
-      <p className="text-sm pt-3 px-4 text-zinc-400">All rights are reserved by Google</p>
+      <p className="text-sm pt-3 px-4 text-zinc-400">This app is made for practice purpose only</p>
     </div>
   )
 }

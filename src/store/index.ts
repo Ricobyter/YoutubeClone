@@ -1,5 +1,6 @@
 import { InitialState} from '../Types';
 import { createSlice, configureStore } from '@reduxjs/toolkit';
+import { getHomePageVideos } from './reducers/getHomePageVideos';
 
 const initialState: InitialState={
     videos: [],
@@ -14,7 +15,11 @@ const YoutubeSlice = createSlice({
     name: "youtubeApp",
     initialState,
     reducers: {},
-    extraReducers:(builder) => {},
+    extraReducers:(builder) => {
+         builder.addCase(getHomePageVideos.fulfilled, (state, action) => {
+            // state.videos = action.payload;
+         })
+    },
 })
 
 export const store = configureStore({
