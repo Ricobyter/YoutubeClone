@@ -22,16 +22,16 @@ export default function Home() {
       <div style={{height: "8vh"}}>
         <Navbar />
     </div>
-    <div className="flex" style = {{height: "92vh"}}>
+    <div className="flex" style = {{height: "92.5vh"}}>
       <Sidebar />
       {videos.length? (
       <InfiniteScroll
        dataLength={videos.length}
        next={() => dispatch(getHomePageVideos(true))}
-       hasMore={videos.length <500} 
+       hasMore={videos.length < 500} 
        loader = {<Spinner />}
-       height={60}>
-        <div className='grid gap-y-12 gap-x-8 grid-cols-4 p-8'>
+       height={650}>
+        <div className='grid gap-y-14 gap-x-8 grid-cols-4 p-8'>
           {videos.map((item: HomePageVideos) => {
             return <Card data={item} key={item.videoId}/>
 
@@ -40,7 +40,6 @@ export default function Home() {
         </div>
 
       </InfiniteScroll>): <Spinner /> }
-      <Spinner />
     </div>
       </div>
     
