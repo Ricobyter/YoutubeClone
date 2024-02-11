@@ -8,6 +8,20 @@ export interface InitialState {
 }
 
 export interface HomePageVideos{
+    videoId: string;
+    videoTitle: string;
+    videoDescription: string;
+    videoLink: string;
+    videoThumbnail: string;
+    videoDuration: string;
+    videoViews: string;
+    videoAge: string;
+    channelInfo:{
+        id: string;
+        name: string;
+        image: string;
+
+    }
 
 }
 
