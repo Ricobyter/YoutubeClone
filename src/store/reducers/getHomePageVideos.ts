@@ -12,7 +12,7 @@ async(isNext: boolean, {getState}) => {
     const {
         youtubeApp:{nextPageToken : nextPageTokenFromState, videos},//videos -> video array. and other one for infinite scroll
     } = getState() as RootState;
-    const{data: {items, nextPageToken}} = await axios.get(`${YOUTUBE_API_URL}/search?maxResults=20&q="react project"&key=${API_KEY}&part=snippet&type=video`);
+    const{data: {items, nextPageToken}} = await axios.get(`${YOUTUBE_API_URL}/search?maxResults=20&q="react project"&key=${API_KEY}&part=snippet&type=video&${isNext ? `pageToken=${nextPageTokenFromState}`:""}`);
     const parsedData: HomePageVideos[] = await parseData(items);
     return {parsedData:[...videos, ...parsedData], nextPageToken};
 }
