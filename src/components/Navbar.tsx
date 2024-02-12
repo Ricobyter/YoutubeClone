@@ -7,11 +7,12 @@ import {IoAppsSharp} from 'react-icons/io5'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Logo from '../assets/images/mrbeast.png'
 import { useAppDispatch, useAppSelector } from '../store/hooks';
-import { clearVideos } from '../store';
+import { changeSearchTerm, clearSearchTerm, clearVideos } from '../store';
+import { getSearchPageVideos } from '../store/reducers/getSearchPageVideos';
 
 export default function Navbar() {
 
-    const Location = useLocation();
+    const location = useLocation();
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
     const searchTerm = useAppSelector((state)=>state.youtubeApp.searchTerm);
@@ -50,7 +51,8 @@ export default function Navbar() {
                         <input type="text" className='w-96 bg-zinc-900 focus:outline-none border-none'
                         value={searchTerm} onChange={e=> dispatch(changeSearchTerm(e.target.value))}/>
                         {/* <AiOutlineClose className=' '/> */}
-                        <AiOutlineClose className='text-xl cursor-pointer'/>
+                        <AiOutlineClose className={`text-xl cursor-pointer ${!searchTerm ? 'invisible': "visible"}`}
+                        onClick={()=> dispatch(clearSearchTerm())}/> 
                     </div>
                     <button className='h-10 w-16 flex items-center justify-center bg-zinc-800'>
                     <AiOutlineSearch className='text-xl'/>
