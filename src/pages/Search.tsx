@@ -36,10 +36,10 @@ export default function Search() {
       {videos.length? (
       <InfiniteScroll
        dataLength={videos.length}
-       next={() => dispatch(getHomePageVideos(true))}
+       next={() => dispatch(getSearchPageVideos(true))}
        hasMore={videos.length < 500} 
        loader = {<Spinner />}
-       height={700}>
+       height={650}>
         <div className='grid gap-y-14 gap-x-16 grid-cols-4 p-10'>
           {videos.map((item: HomePageVideos) => {
             return <Card data={item} key={item.videoId}/>
