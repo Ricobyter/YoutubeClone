@@ -26,7 +26,7 @@ export default function Navbar() {
         }
     }
   return (
-    <div className='flex justify-between items-center h-14 px-14 bg-[#212121] opacity-95 sticky top-0 z-50'>
+    <div className='flex justify-between items-center h-14 px-14 bg-[rgba(15,15,15,255)] opacity-95 sticky top-0 z-50'>
         <div className="flex gap-8 text-2xl items-center">
             <div className='cursor-pointer'>
                 <GiHamburgerMenu />
@@ -43,36 +43,37 @@ export default function Navbar() {
                 e.preventDefault();
                 handleSearch();
             }}>
-                <div className="flex bg-zinc-900 items-center h-10 px-4 pr-0 ">
+                <div className="flex bg-zinc-900 items-center h-10 px-4 pr-0 rounded-xl">
                     <div className="flex gap-4 items-center pr-5 ">
                         <div>
                             <AiOutlineSearch className='text-xl'/>
                         </div>
+                        <label htmlFor=""></label>
                         <input type="text" className='w-96 bg-zinc-900 focus:outline-none border-none'
-                        value={searchTerm} onChange={e=> dispatch(changeSearchTerm(e.target.value))}/>
+                        value={searchTerm} onChange={e=> dispatch(changeSearchTerm(e.target.value))} name='searchvideos'/>
                         {/* <AiOutlineClose className=' '/> */}
                         <AiOutlineClose className={`text-xl cursor-pointer ${!searchTerm ? 'invisible': "visible"}`}
                         onClick={()=> dispatch(clearSearchTerm())}/> 
                     </div>
-                    <button className='h-10 w-16 flex items-center justify-center bg-zinc-800'>
+                    <button className='h-10 w-16 flex items-center justify-center bg-[#272727] rounded-xl'>
                     <AiOutlineSearch className='text-xl'/>
                     </button>
                 </div>
             </form>
-            <div className='text-xl p-3 bg-zinc-800 rounded-full'>
+            <div className='text-xl p-3 bg-[#272727] rounded-full'>
                 <TiMicrophone />
             </div>
         </div>
         <div className='flex gap-4 items-center text-xl'>
-            <BsCameraVideo />
-            <IoAppsSharp />
+            <BsCameraVideo className='cursor-pointer'/>
+            <IoAppsSharp className='cursor-pointer'/>
             <div className='relative'>
-                <BsBell />
+                <BsBell className='cursor-pointer'/>
                 <span className='absolute bottom-2 left-2 text-xs bg-red-500 rounded-full px-1'>
                     68+
                 </span>
             </div>
-            <img src= {Logo} alt="Logo" className='h-9 w-9 rounded-full ml-2'/>
+            <img src= {Logo} alt="Logo" className='h-9 w-9 rounded-full ml-2 cursor-pointer'/>
         </div>
     </div>
   )

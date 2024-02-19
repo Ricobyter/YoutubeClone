@@ -62,20 +62,21 @@ export default function Sidebar() {
     
       const subscriptionLinks = [
         {
-          icon: <TbMusic className="text-xl" />,
-          name: "Music",
+          icon: <TbMusic className="text-xl bg-[#ff0000] rounded-full p-1" />,
+          name: "Youtube Music",
         },
         {
-          icon: <MdOutlineSportsVolleyball className="text-xl" />,
-          name: "Sport",
+          icon: <MdOutlineSportsVolleyball className="text-xl bg-[#ff0000] rounded-full p-1" />,
+          name: "Youtube Sport",
         },
         {
-          icon: <TbDeviceGamepad2 className="text-xl" />,
-          name: "Gaming",
+          icon: <TbDeviceGamepad2 className="text-xl bg-[#ff0000] rounded-full p-1" />,
+          name: "Youtube Gaming",
         },
         {
-          icon: <GiFilmStrip className="text-xl" />,
-          name: "Films",
+          icon: <GiFilmStrip className="text-xl bg-[#ff0000] rounded-full p-1
+          " />,
+          name: "Youtube Films",
         },
       ];
     
@@ -117,7 +118,7 @@ export default function Sidebar() {
         ],
       ];
   return (
-    <div className="w-2/12 bg-[#212121] pr-5 overflow-auto pb-6 sidebar">
+    <div className="w-2/12 bg-[rgba(15,15,15,255)] pr-5 overflow-auto pb-6 sidebar">
       <ul className="flex flex-col border-b-2 border-gray-600">
         {mainLinks.map(({icon,name}) => {
             return(
@@ -131,6 +132,7 @@ export default function Sidebar() {
         } )}
       </ul>
       <ul className="flex flex-col border-b-2 border-gray-600">
+      <p className="text-white pl-6 mt-4 font-semibold text-lg">You</p>
         {secondaryLinks.map(({icon,name}) => {
             return(
                 <li key={name} className={`pl-6 py-6 hover:bg-zinc-500 }`}>
@@ -143,6 +145,20 @@ export default function Sidebar() {
         } )}
       </ul>
       <ul className="flex flex-col border-b-2 border-gray-600">
+        <p className="text-white pl-6 mt-4 font-semibold text-lg">More from Youtube</p>
+        {subscriptionLinks.map(({icon,name}) => {
+            return(
+                <li key={name} className={`pl-6 py-6 hover:bg-zinc-500 }`}>
+                    <a href="#" className="flex items-center gap-5 ">
+                        {icon}
+                        <span className="text-sm ">{name}</span>
+                    </a>
+                </li>
+            )
+        } )}
+      </ul>
+      <ul className="flex flex-col border-b-2 border-gray-600">
+      
         {helpLinks.map(({icon,name}) => {
             return(
                 <li key={name} className={`pl-6 py-6 hover:bg-zinc-500 }`}>
@@ -154,6 +170,7 @@ export default function Sidebar() {
             )
         } )}
       </ul>
+
       <ul className="flex gap-2 text-sm flex-wrap p-4 text-zinc-400">
         {textLinks[0].map((name) => {
           return <li key={name}>{name}</li>
